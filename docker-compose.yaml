@@ -1,0 +1,53 @@
+version: "3.9"
+
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    restart: unless-stopped
+    ports:
+      - "3000:8080"
+    environment:
+      - ENABLE_WEB_SEARCH=true
+      - WEB_SEARCH_ENGINE=searxng
+      - OLLAMA_BASE_URL=http://172.17.0.1:11434
+      - RAG_EMBEDDING_ENGINE=ollama
+      - RAG_EMBEDDING_MODEL=bge-m3
+      - CHUNK_SIZE=1024
+      - CHUNK_OVERLAP=200
+      - RAG_TOP_K=10
+      - RAG_RELEVANCE_THRESHOLD=0.2
+      - ENABLE_SIGNUP=false
+      - ENABLE_COMMUNITY_SHARING=false
+      - WEBUI_SECRET_KEY=supersecretkey_cambiame_en_produccion
+    volumes:
+      - ai-stack_openwebui:/app/backend/data
+    networks:
+      - ai-stack_default
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    networks:
+      - ai-stack_default
+
+volumes:
+  ai-stack_openwebui:
+  qdrant_data:
+
+networks:
+  ai-stack_default:
+    external: true
