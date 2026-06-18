@@ -1,89 +1,58 @@
-# StackIA_v1 - Taller Openweb UI montado sobre Docker. Monitorizado en python con RAG reforzado.
-En este taller de pruebas, comparé modelos y rendimiento en LM Studio, Anything LLM y Openweb UI.
+# StackIA_v1 🚀
+> **Taller OpenWebUI sobre Docker:** Monitorización en Python con RAG reforzado y soberanía de datos 100% On-Premise.
 
-HERRAMIENTAS EMPLEADAS: Openweb UI,Docling, Python, fundamentalmente.
+Este proyecto nace como un entorno de pruebas para comparar el rendimiento de modelos en **LM Studio**, **AnythingLLM** y **OpenWebUI**, consolidando una plataforma privada, eficiente y escalable.
 
-MONITORIZACION PERSONALIZADA : Para la gestion de Openweb UI, desarrollé con Claude-Sonet 4.6, un monitor en python+ html/css para gestionar actualizaciones, reinicios , etc del sistema de contenedores , de modo transparente para el usuario. 
+---
 
-GESTIÓN DE MODELOS Y CUANTIZACIÓN
-Volúmenes Persistencia estricta para índices vectoriales y UI gemma-4-12b-it-q8
-qwen2.5:32b deepseek-r1:14b qwen2.5-coder:14b qwen2.5vl (Vision)
+## 🛠️ Herramientas y Stack Tecnológico
 
-AceleraciónNVIDIA Container Toolkit
-(Passthrough GPU nativo)Especialización en entornos de ejecución mixtos mediante importación
-aya-expanse:8b nativa de formatos GGUF (de LM Studio a Ollama). Modelos embebidos
-configurados con bge-m3 y nomic-embed-text para la generación precisa de vectores densos.
+* **Interfaz y Orquestación:** OpenWebUI (Portal unificado e interactivo).
+* **Procesamiento Documental:** Docling (Extracción fina de datos estructurados).
+* **Motor de Inferencia:** Ollama (Gestión dinámica e importación nativa GGUF desde LM Studio).
+* **Base de Datos Vectorial:** Qdrant (Indexación rápida de embeddings).
+* **Meta-buscador Privado:** SearXNG (Consultas web sin rastreo comercial).
+* **Monitorización Personalizada:** Dashboard desarrollado en *Python + HTML/CSS* para la gestión transparente de actualizaciones, estados del stack y reinicios de contenedores (Puerto `8765`).
 
-# Mi Plataforma de IA Privada
+---
 
-**ON-PREMISE & LOCAL**
+## 🏗️ Arquitectura del Sistema y Capacidades
 
-Despliegue local de arquitecturas RAG, microservicios autónomos y procesamiento documental sin dependencia externa.
+### 🧩 Pilares Clave
+1.  **Chat IA Local:** Interacción directa con LLMs de manera 100% privada y segura.
+2.  **RAG de Alto Rendimiento:** Flujo completo con *chunking* de 1024 tokens, solape (*overlap*) de 200 y almacenamiento indexado.
+3.  **Privacidad Absoluta:** Arquitectura de microservicios autónomos sin dependencias ni fugas de datos externas.
 
-## Pilares y Capacidades
+### 💻 Infraestructura de Hardware
+* **GPU:** NVIDIA RTX 4060 Ti (16 GB VRAM) con aceleración **NVIDIA Container Toolkit** (Passthrough GPU nativo).
+* **CPU:** AMD Ryzen 7 7700X
+* **RAM:** 32 GB DDR5
 
-Una suite integral orientada a salvaguardar la privacidad, optimizar el rendimiento por hardware y potenciar la experimentación con LLMs.
+---
 
-## Servicios y Pilares Clave
+## 🤖 Ecosistema de Modelos en Uso
 
-### Chat IA Local
-Interacción directa con modelos de lenguaje grandes (LLMs) de manera 100% privada y segura.
+| Tipo de Modelo | Modelos Desplegados / Cuantizados | Notas de Configuración |
+| :--- | :--- | :--- |
+| **Razonamiento y Lógica** | `deepseek-r1:14b` | Razonamiento avanzado profundo. |
+| **Modelos Generales y Código**| `gemma-4-12b-it-q8`, `qwen2.5:32b`, `qwen2.5-coder:14b`, `mistral-small3.2:24b` | Inferencia mixta y desarrollo local. |
+| **Visión** | `qwen2.5vl` | Procesamiento multimodal local. |
+| **Embeddings** | `bge-m3`, `nomic-embed-text` | Generación precisa de vectores densos. |
 
-### RAG & Documentos
-Generación enriquecida mediante recuperación de información desde bases vectoriales locales.
+---
 
-### Búsqueda Privada
-Uso de SearXNG como metabuscador local para consultas sin rastreo de motores comerciales.
+## 🐳 Análisis del Despliegue (Docker Compose)
 
-## Infraestructura Hardware
+El ciclo de vida, aislamiento y red de los servicios clave se gestionan mediante el archivo `compose.yml`:
 
-**16 GB**
-**VRAM en GPU RTX 4060 Ti**
-
-### Potencia de Cálculo Local
-
-Capacidad optimizada para ejecutar localmente la inferencia de modelos medianos y pesados sin estrangular el sistema host.
-
-Soporte de cómputo robusto basado en un procesador **AMD Ryzen 7 7700X** y **32 GB DDR5** de memoria RAM principal.
-
-## Arquitectura de Software
-
-### Inferencia y Control
-
-He configurado Ollama para la inferencia, descarga y orquestación dinámica de múltiples LLMs locales.
-
-La experiencia de usuario se centraliza en Open WebUI como portal unificado, interactivo y con gestión granular.
-
-### Indexación y Búsqueda
-
-Para el núcleo RAG, utilizo la base de datos vectorial Qdrant para indexar rápidamente los vectores o embeddings de texto.
-
-El procesamiento nativo de documentos se asiste con Docling para la extracción fina de datos estructurados.
-
-## Ecosistema de Modelos en Uso
-
-Gama Versátil de LLMs: Modelos optimizados para razonamiento científico y codificación (`gemma3:12b`, `qwen2.5:14b`, `deepseek-r1:14b` y `mistral-small3.2:24b`).
-
-Modelos de Embeddings: Generación estructurada de vectores mediante los motores optimizados `bge-m3` y `nomic-embed-text`.
-
-Pipeline RAG Integrado: Flujo completo de chunking de 1024 tokens, solape de 200 y almacenamiento en BD vectorial.
-
-Observabilidad Activa: Supervisión del estado del stack y GPU con script dedicado en el puerto 8765.
-
-## Análisis del Docker Compose
-
-Desglose y análisis del archivo `compose.yml` que gestiona y aísla el ciclo de vida de los servicios del ecosistema.
-
-## Configuración de Servicios
-
-| Servicio | Imagen de Docker | Puertos Expuestos | Variables de Entorno Clave |
+| Servicio | Imagen de Docker | Puertos Expuestos | Variables de Entorno Clave / Notas |
 | :--- | :--- | :--- | :--- |
-| open-webui | ghcr.io/open-webui:main | 3000:8080 | ENABLE_WEB_SEARCH=true, RAG_EMBEDDING_ENGINE=ollama |
-| qdrant | qdrant/qdrant:latest | 6333, 6334 | (Mapeado a puerto local para gRPC y APIs vectoriales) |
-| ollama | (Inferencia local) | 11434 | Ubicado en el host e integrado a través de red Docker local |
+| **`open-webui`** | `ghcr.io/open-webui:main` | `3000:8080` | `ENABLE_WEB_SEARCH=true`<br>`RAG_EMBEDDING_ENGINE=ollama` |
+| **`qdrant`** | `qdrant/qdrant:latest` | `6333`, `6334` | Mapeado local para APIs vectoriales y comunicación gRPC. |
+| **`ollama`** | *(Inferencia Local)* | `11434` | Ubicado en el host, integrado mediante la red local de Docker y con persistencia estricta de volúmenes. |
 
-## Conclusiones de la Infraestructura
+---
 
-He desarrollado una solución basada en microservicios reales que, además de garantizar la soberanía de los datos, posee un alto valor pedagógico al unificar redes Docker, aceleración por hardware (NVIDIA Container Toolkit), persistencia vectorial e IA generativa local.
+## 🛡️ Conclusiones de la Infraestructura
 
-🛡️ Privacidad de Datos Garantizada On-Premise
+**StackIA_v1** demuestra la viabilidad de desplegar entornos de IA generativa profesional en local. Al unificar redes de Docker, persistencia vectorial estricta y aceleración por hardware nativa, se logra una solución que no solo **garantiza la soberanía absoluta de los datos**, sino que además posee un alto valor pedagógico para la experimentación de entornos híbridos de IA.
