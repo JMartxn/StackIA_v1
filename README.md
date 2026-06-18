@@ -1,11 +1,11 @@
-# StackIA_v1 🚀
+# StackIA_v1 
 > **Taller OpenWebUI sobre Docker:** Monitorización en Python con RAG reforzado y soberanía de datos 100% On-Premise.
 
 Este proyecto nace como un entorno de pruebas para comparar el rendimiento de modelos en **LM Studio**, **AnythingLLM** y **OpenWebUI**, consolidando una plataforma privada, eficiente y escalable.
 
 ---
 
-## 🛠️ Herramientas y Stack Tecnológico
+## Herramientas y Stack Tecnológico
 
 * **Interfaz y Orquestación:** OpenWebUI (Portal unificado e interactivo).
 * **Procesamiento Documental:** Docling (Extracción fina de datos estructurados).
@@ -16,21 +16,21 @@ Este proyecto nace como un entorno de pruebas para comparar el rendimiento de mo
 
 ---
 
-## 🏗️ Arquitectura del Sistema y Capacidades
+## Arquitectura del Sistema y Capacidades
 
-### 🧩 Pilares Clave
+### Pilares Clave
 1.  **Chat IA Local:** Interacción directa con LLMs de manera 100% privada y segura.
 2.  **RAG de Alto Rendimiento:** Flujo completo con *chunking* de 1024 tokens, solape (*overlap*) de 200 y almacenamiento indexado.
 3.  **Privacidad Absoluta:** Arquitectura de microservicios autónomos sin dependencias ni fugas de datos externas.
 
-### 💻 Infraestructura de Hardware
+### Infraestructura de Hardware
 * **GPU:** NVIDIA RTX 4060 Ti (16 GB VRAM) con aceleración **NVIDIA Container Toolkit** (Passthrough GPU nativo).
 * **CPU:** AMD Ryzen 7 7700X
 * **RAM:** 32 GB DDR5
 
 ---
 
-## 🤖 Ecosistema de Modelos en Uso
+## Ecosistema de Modelos en Uso
 
 | Tipo de Modelo | Modelos Desplegados / Cuantizados | Notas de Configuración |
 | :--- | :--- | :--- |
@@ -41,7 +41,7 @@ Este proyecto nace como un entorno de pruebas para comparar el rendimiento de mo
 
 ---
 
-## 🐳 Análisis del Despliegue (Docker Compose)
+## Análisis del Despliegue (Docker Compose)
 
 El ciclo de vida, aislamiento y red de los servicios clave se gestionan mediante el archivo `compose.yml`:
 
@@ -53,6 +53,6 @@ El ciclo de vida, aislamiento y red de los servicios clave se gestionan mediante
 
 ---
 
-## 🛡️ Conclusiones de la Infraestructura
+## Conclusiones de la Infraestructura
 
 **StackIA_v1** demuestra la viabilidad de desplegar entornos de IA generativa profesional en local. Al unificar redes de Docker, persistencia vectorial estricta y aceleración por hardware nativa, se logra una solución que no solo **garantiza la soberanía absoluta de los datos**, sino que además posee un alto valor pedagógico para la experimentación de entornos híbridos de IA.
