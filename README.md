@@ -7,10 +7,8 @@ MONITORIZACION PERSONALIZADA : Para la gestion de Openweb UI, desarrollé con Cl
 
 GESTIÓN DE MODELOS Y CUANTIZACIÓN
 Volúmenes Persistencia estricta para índices vectoriales y UI gemma-4-12b-it-q8
-qwen2.5:32b
-deepseek-r1:14b
-qwen2.5-coder:14b
-qwen2.5vl (Vision)
+qwen2.5:32b deepseek-r1:14b qwen2.5-coder:14b qwen2.5vl (Vision)
+
 AceleraciónNVIDIA Container Toolkit
 (Passthrough GPU nativo)Especialización en entornos de ejecución mixtos mediante importación
 aya-expanse:8b nativa de formatos GGUF (de LM Studio a Ollama). Modelos embebidos
